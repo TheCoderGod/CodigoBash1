@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# OPÇÕES
+
+editor="nano"
+
+header="#!/usr/bin/env bash
+# --------------------------------------------------------
+# SCRIPT :
+# Autor:
+# E-mail: <mrenan10@hotmail.com>
+# Data de criação:$(date +'%d/%m/%Y')
+# --------------------------------------------------------
+# Uso:
+# --------------------------------------------------------
+"
+
+# TESTAR SE O USUARIO PASSOU O N CERTO DE ARGUMENTOS (1)
+test $# -ne 1 && echo "Epa! Eu preciso de *um* nome de arquivo" && exit 1
+
+# TESTAR SE O USUARIO PASSOU MAIS DE UM ARGUMENTO
+
+# TESTAR SE ARQUIVO JA EXISTE
+
+test -f $1 && echo "Epa! Arquivo ja existe! QUITTING!" && exit 1
+
+
+echo "$header" > $1
+
+chmod +x $1
+
+$editor $1
+
+exit 0
